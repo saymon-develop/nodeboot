@@ -17,31 +17,40 @@ board.on("ready", function() {
       });
     
       board.repl.inject({
-        motor
+        right,
+left
       });
     
-      motor.on("start", () => {
+      right.on("start", () => {
         console.log(`start: ${Date.now()}`);
       });
     
-      motor.on("stop", () => {
+      right.on("stop", () => {
+        console.log(`automated stop on timer: ${Date.now()}`);
+      });
+
+      left.on("start", () => {
+        console.log(`start: ${Date.now()}`);
+      });
+    
+      left.on("stop", () => {
         console.log(`automated stop on timer: ${Date.now()}`);
       });
     
-      motor.on("forward", () => {
-        console.log(`forward: ${Date.now()}`);
+    //   motor.on("forward", () => {
+    //     console.log(`forward: ${Date.now()}`);
     
-        // demonstrate switching to reverse after 5 seconds
-        board.wait(5000, () => motor.reverse(50));
-      });
+    //     // demonstrate switching to reverse after 5 seconds
+    //     board.wait(5000, () => motor.reverse(50));
+    //   });
     
-      motor.on("reverse", () => {
-        console.log(`reverse: ${Date.now()}`);
+    //   motor.on("reverse", () => {
+    //     console.log(`reverse: ${Date.now()}`);
     
-        // demonstrate stopping after 5 seconds
-        board.wait(5000, motor.stop);
-      });
+    //     // demonstrate stopping after 5 seconds
+    //     board.wait(5000, motor.stop);
+    //   });
     
       // set the motor going forward full speed
-      motor.forward(255);
+    //   motor.forward(255);
 });
