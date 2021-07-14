@@ -9,7 +9,7 @@ board.on("ready", function() {
         }
       });
 
-    const left = new fiveMotor({
+    const left = new five.Motor({
         pins: {
           pwm: 6,
           dir: 7
