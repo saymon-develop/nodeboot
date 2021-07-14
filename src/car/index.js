@@ -2,24 +2,21 @@ var five = require('johnny-five'),
     board = new five.Board();
 
 board.on("ready", function() {
-    const right = new Motor({
+    const right = new five.Motor({
         pins: {
           pwm: 8,
           dir: 9
         }
       });
 
-    const left = new Motor({
+    const left = new fiveMotor({
         pins: {
           pwm: 6,
           dir: 7
         }
       });
     
-      board.repl.inject({
-        right,
-left
-      });
+      board.repl.inject({ right, left });
     
       right.on("start", () => {
         console.log(`start: ${Date.now()}`);
